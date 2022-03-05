@@ -1,6 +1,8 @@
 ﻿@page "/R_Productos"
 @page "/R_Productos/{ProductoId:int}"
 
+@inject IToastService toastService
+
 <EditForm Model="producto" OnValidSubmit="Guardar">
     <DataAnnotationsValidator />
 
@@ -33,7 +35,7 @@
                             <InputNumber @bind-Value="producto.ProductoId" class="form-control col-4 col" />
 
                             <div class="input-group-append col">
-                                <button type="button" class="btn btn-success input-group-text "
+                                <button type="button" class="btn btn-primary input-group-text "
                                     @onclick="Buscar"><span class="oi oi-magnifying-glass">Buscar</span></button>
                             </div>
 
@@ -133,7 +135,7 @@
                                 }
                             </div>
 
-                            <button type="button" class="btn btn-success" @onclick="AgregarDetalle">
+                            <button type="button" class="btn btn-warning" @onclick="AgregarDetalle">
                                 <span class="oi oi-plus">Agregar Detalle</span>
                             </button>
 
@@ -181,11 +183,11 @@
                     </button>
                     
                     <button type="submit" class="btn btn-lg btn-success">
-                        <span class="oi oi-folder">Guardar</span>
+                        <span class="oi oi-clipboard">Guardar</span>
                     </button>
                     
                     <button type="button" class="btn btn-lg btn-danger" @onclick="Eliminar">
-                        <span class="oi oi-trash">Eliminar</span>
+                        <span class="oi oi-circle-x">Eliminar</span>
                     </button>
 
                 </div>
