@@ -2,6 +2,10 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Tarea6Lab.Data;
 using Blazored.Toast;
+using Microsoft.EntityFrameworkCore;
+using Tarea6Lab.DAL;
+using Tarea6Lab.BLL;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +15,12 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
 builder.Services.AddBlazoredToast(); // Toast
+builder.Services.AddTransient<ProductoBLL>(); // BLL
+
+// Aqui inyectamos el DbContext
+builder.Services.AddDbContext<Contexto>(options => 
+    options.UseSqlite(builder.Configuration.GetConnectionString("ConStr"))    
+);
 
 var app = builder.Build();
 
