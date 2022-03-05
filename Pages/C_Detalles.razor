@@ -1,0 +1,96 @@
+@page "/C_Detalles"
+
+@using Tarea6Lab.Models
+@using Tarea6Lab.BLL 
+
+<EditForm Model="lista">
+    <DataAnnotationsValidator />
+    
+    <div class="card">
+    
+        <div class="card-header">
+            <h3>Consulta de Detalles</h3>
+        </div>
+    
+        <div class="card-body">
+    
+            <form>
+    
+                <div class="input-group d-flex align-items-end">
+                    <select class="form-control col-2" @bind="Filtro">
+                        <option value="0"></option>
+                        <option value="1">Id</option>
+                        <option value="2">Presentación</option>
+                    </select>
+
+                    <div class="flex-fill mx-2">
+                        <label>Criterio</label>
+                        <input type="text" class="form-control" @bind="Criterio" placeholder="Escriba Aqui"/>
+                    </div>
+
+                    <button type="button" class="btn btn-warning" @onclick="Buscar">
+                        <i class="oi oi-magnifying-glass mr-2"/> Buscar
+                    </button>
+                </div>
+                
+            </form>
+    
+        </div>
+    
+        <table class="table table-secondary">
+    
+            <thead class="thead-dark">
+                <tr class="table-info">
+                    <th>Id</th>
+                    <th>Producto Id</th>
+                    <th>Presentacion</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                @*  *@
+            </tbody>
+    
+        </table>
+    
+    </div>
+
+</EditForm>
+
+
+
+@code{
+    public string Filtro { get; set; }
+    public string Criterio { get; set; }
+    public List<Productos> lista { get; set; } = new List<Productos>(); 
+
+    [Inject]
+    public ProductoBLL productosBLL { get; set; }
+
+    private void Buscar()
+    {
+        if (Criterio != null)
+        {
+            switch(Filtro)
+            {
+                case "1":
+                    lista = productosBLL.GetList(t => t.ProductoId == int.Parse(Criterio));
+                break;
+
+                case "2":
+                    lista = productosBLL.GetList(t => t.Descripcion.ToLower().Contains(Criterio.ToLower())); 
+                break;
+
+                case "3":
+                    
+                break;
+            }
+        }
+        else
+        {
+            lista = productosBLL.GetList(t => true);
+        }
+    }
+}
