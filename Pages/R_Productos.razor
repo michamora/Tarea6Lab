@@ -98,12 +98,7 @@
                                 <label>Cantidad</label>
                                 <InputNumber class="form-control" @bind-Value="Cantidad" />
                                 <ValidationMessage For="@(() => Cantidad)" />
-                                @if(Cantidad < 0)
-                                {
-                                    <label>
-                                      
-                                    </label>
-                                }
+                               
                             </div>
 
                             @* Precio *@
