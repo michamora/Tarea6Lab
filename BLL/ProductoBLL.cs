@@ -93,7 +93,10 @@ namespace Tarea6Lab.BLL // BLL
 
             try
             {
-                producto = _contexto.Productos.Include(x => x.Detalle).Where(p => p.ProductoId == Id).SingleOrDefault();
+                producto = _contexto.Productos
+                .Include(x => x.Detalle)
+                .Where(p => p.ProductoId == Id)
+                .SingleOrDefault();
             }
             catch (Exception)
             {
@@ -109,7 +112,8 @@ namespace Tarea6Lab.BLL // BLL
 
             try
             {
-                paso = _contexto.Productos.Any(p => p.Descripcion == descripcion);
+                paso = _contexto.Productos.
+                Any(p => p.Descripcion == descripcion);
             }
             catch (Exception)
             {

@@ -9,7 +9,7 @@
     <div class="card">
     
         <div class="card-header">
-            <h3>Consulta de Productos</h3>
+            <h3>Consulta de Productos por Presentacion</h3>
         </div>
     
         <div class="card-body">
@@ -18,36 +18,7 @@
     
                 <div class="input-group d-flex align-items-end">
                     
-                    <select class="form-control col-2" @bind="Filtro">
-                        <option value="0"></option>
-                        <option value="1">Id</option>
-                        <option value="2">Descripción</option>
-                        <option value="3">Fecha Expiracion</option>
-                    </select>
-
-                    @if(Filtro == "3")
-                    {
-                        <div class="flex-fill mx-2">
-                            <label>Desde</label>
-                            <input type="date" class="form-control" @bind="Desde"/>
-                        </div>
-
-                        <div class="flex-fill mx-2">
-                            <label>Hasta</label>
-                            <input type="date" class="form-control" @bind="Hasta"/>
-                        </div>    
-                    }
-                    
-                    <div class="flex-fill mx-2">
-                        <label>Criterio</label>
-                        <input type="text" class="form-control" @bind="Criterio" placeholder="Escriba Aqui"/>
-                    </div>
-
-                    <button type="button" class="btn btn-primary" @onclick="Buscar">
-                        <i class="oi oi-magnifying-glass mr-2"/> Buscar
-                    </button>
-
-                </div>
+                  </div>
                 
             </form>
     
@@ -57,12 +28,14 @@
     
             <thead class="thead-dark">
                 <tr class="table-info">
-                    <th>Id</th>
+                    <th>ProductoId</th>
                     <th>Descripción</th>
+                    <th>Presentacion</th>
                     <th>Existencia</th>
-                    <th>Costo</th>
-                    <th>Valor Inventario</th>
-                    <th>Fecha Expiracion</th>
+
+                    <div class="card-header"></div>
+            <h3>Conteo:</h3>
+                    
                 </tr>
             </thead>
     

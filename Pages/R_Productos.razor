@@ -1,4 +1,5 @@
 ﻿@page "/R_Productos"
+
 @page "/R_Productos/{ProductoId:int}"
 
 @inject IToastService toastService
@@ -13,13 +14,6 @@
             <div class="card-header">
                 <h3 class="card-title">Registro de Productos</h3>
             </div>
-
-            @* 
-            <div>
-                <label>Fecha: </label>
-                <Label>@(producto.Fecha = DateTime.Now)</Label>
-            </div> 
-            *@
 
             <div class="card-body">
 
@@ -38,11 +32,8 @@
                                 <button type="button" class="btn btn-primary input-group-text "
                                     @onclick="Buscar"><span class="oi oi-magnifying-glass">Buscar</span></button>
                             </div>
-
                         </div>
-
-                    </div>
-                    
+                    </div>                 
                 </div>
 
                 <hr>
@@ -70,7 +61,7 @@
                         <ValidationMessage For="@(() => producto.Costo)" />
                     </div>
 
-                    @* Valor Inventario *@
+                    @* Valor de Inventario *@
                     <div class="form-group col">
                         <label>Valor Inventario</label>
                         <InputNumber readonly class="form-control" @bind-Value="producto.ValorInventario" />
@@ -81,14 +72,7 @@
 
                 <br>
 
-                <div class="row">
-                    @* Fecha *@
-                    <div class="form-group col">
-                        <label>Fecha Expiracion</label>
-                        <InputDate class="form-control" @bind-Value="producto.Fecha" />
-                        <ValidationMessage For="@(() => producto.Fecha)" />
-                    </div>
-                </div>
+               
 
                 <hr>
 
@@ -136,7 +120,7 @@
                             </div>
 
                             <button type="button" class="btn btn-warning" @onclick="AgregarDetalle">
-                                <span class="oi oi-plus">Agregar Detalle</span>
+                                <span class="oi oi-plus">Agregar</span>
                             </button>
 
                         </div>
@@ -244,7 +228,9 @@
     public void NuevoDetalle()
     {
         Presentacion = "";
+
         Cantidad = 0;
+
         Precio = 0;
     }
     public void Guardar()
