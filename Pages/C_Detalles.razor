@@ -31,10 +31,8 @@
                     <button type="button" class="btn btn-primary" @onclick="Buscar">
                         <i class="oi oi-magnifying-glass mr-2"/> Buscar
                     </button>
-                </div>
-                
-            </form>
-    
+                </div>             
+            </form>  
         </div>
     
         <table class="table table-secondary">
@@ -47,19 +45,14 @@
                     <th>Cantidad</th>
                     <th>Precio</th>
                 </tr>
-            </thead>
-    
+            </thead>  
             <tbody>
                 @*  *@
-            </tbody>
-    
-        </table>
-    
+            </tbody>   
+        </table>    
     </div>
 
 </EditForm>
-
-
 
 @code{
     public string Filtro { get; set; }
@@ -76,15 +69,13 @@
             switch(Filtro)
             {
                 case "1":
-                    lista = productosBLL.GetList(t => t.ProductoId == int.Parse(Criterio));
+                    lista = productosBLL.GetList(t => 
+                    t.ProductoId == int.Parse(Criterio));
                 break;
 
                 case "2":
-                    lista = productosBLL.GetList(t => t.Descripcion.ToLower().Contains(Criterio.ToLower())); 
-                break;
-
-                case "3":
-                    
+                    lista = productosBLL.GetList(t => 
+                    t.Descripcion.ToLower().Contains(Criterio.ToLower())); 
                 break;
             }
         }

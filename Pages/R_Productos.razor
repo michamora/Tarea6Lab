@@ -111,12 +111,7 @@
                                 <label>Precio</label>
                                 <InputNumber class="form-control" @bind-Value="Precio" />
                                 <ValidationMessage For="@(() => Precio)" />
-                                @if(Precio < 0)
-                                {
-                                    <label>
-                                        El Precio no puede ser menor a cero
-                                    </label>
-                                }
+                                
                             </div>
 
                             <button type="button" class="btn btn-warning" @onclick="AgregarDetalle">
