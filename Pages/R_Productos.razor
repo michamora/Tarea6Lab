@@ -263,9 +263,10 @@
     private void CalculoValorInventario()
     {
         double costo = producto.Costo;
-        double existencia = producto.Existencia;
 
-        producto.ValorInventario = costo * existencia;
+           double existencia = producto.Existencia;
+
+                producto.ValorInventario = costo * existencia;
     }
 
 }
