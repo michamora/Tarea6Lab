@@ -7,7 +7,7 @@
 <EditForm Model="producto" OnValidSubmit="Guardar">
     <DataAnnotationsValidator />
 
-    <div class="container-md">
+     <div class="card shadow-lg">
 
         <div class="card shadow-lg">
 
@@ -41,28 +41,28 @@
                 <div class="row">
 
                     @* Descripcion *@
-                    <div class="form-group col">
-                        <label>Descripción</label>
-                        <InputText class="form-control" @bind-Value="producto.Descripcion" placeholder="DescripciónProducto"/>
+                    <div class="form-group mt-3">
+                        <label>Descripci&oacute;n</label>
+                        <InputText class="form-control" @bind-Value="producto.Descripcion" placeholder="Descripción Producto"/>
                         <ValidationMessage For="@(() => producto.Descripcion)" />
                     </div>
 
                     @* Existencia *@
-                    <div class="form-group col">
+                    <div class="form-group mt-3 ">
                         <label>Existencia</label>
                         <InputNumber class="form-control" @bind-Value="producto.Existencia" @onchange="CalculoValorInventario" />
                         <ValidationMessage For="@(() => producto.Existencia)" />
                     </div>
 
                     @* Costo *@
-                    <div class="form-group col">
+                    <div class="form-group mt-3 ">
                         <label>Costo</label>
                         <InputNumber class="form-control" @bind-Value="producto.Costo" @onchange="CalculoValorInventario"/>
                         <ValidationMessage For="@(() => producto.Costo)" />
                     </div>
 
                     @* Valor de Inventario *@
-                    <div class="form-group col">
+                    <div class="form-group mt-3 ">
                         <label>Valor Inventario</label>
                         <InputNumber readonly class="form-control" @bind-Value="producto.ValorInventario" />
                         <ValidationMessage For="@(() => producto.ValorInventario)" />
