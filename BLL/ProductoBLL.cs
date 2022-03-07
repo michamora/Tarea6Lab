@@ -141,18 +141,18 @@ namespace Tarea6Lab.BLL // BLL
         
         public List<Productos> GetList(Expression<Func<Productos, bool>> critero)
         {
-            List<Productos> lista = new List<Productos>();
+            List<Productos> listaProductos = new List<Productos>();
 
             try
             {
-                lista = _contexto.Productos.Where(critero).ToList();
+                listaProductos = _contexto.Productos.Where(critero).ToList();
             }
             catch (Exception)
             {
                 throw;
             }
 
-            return lista;
+            return listaProductos;
         }
 
     }

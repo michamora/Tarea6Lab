@@ -3,7 +3,7 @@
 @using Tarea6Lab.Models
 @using Tarea6Lab.BLL 
 
-<EditForm Model="lista">
+<EditForm Model="listaProductos">
     <DataAnnotationsValidator />
     
     <div class="card">
@@ -40,9 +40,13 @@
             <thead class="thead-dark">
                 <tr class="table-info">
                     <th>Id</th>
+
                     <th>Producto Id</th>
+
                     <th>Presentacion</th>
+                    
                     <th>Cantidad</th>
+
                     <th>Precio</th>
                 </tr>
             </thead>  
@@ -57,7 +61,8 @@
 @code{
     public string Filtro { get; set; }
     public string Criterio { get; set; }
-    public List<Productos> lista { get; set; } = new List<Productos>(); 
+    public List<Productos> listaProductos { get; set; } = new List<Productos>(); 
+    
 
     [Inject]
     public ProductoBLL productosBLL { get; set; }
@@ -69,19 +74,19 @@
             switch(Filtro)
             {
                 case "1":
-                    lista = productosBLL.GetList(t => 
+                    listaProductos = productosBLL.GetList(t => 
                     t.ProductoId == int.Parse(Criterio));
                 break;
 
                 case "2":
-                    lista = productosBLL.GetList(t => 
+                    listaProductos = productosBLL.GetList(t => 
                     t.Descripcion.ToLower().Contains(Criterio.ToLower())); 
                 break;
             }
         }
         else
         {
-            lista = productosBLL.GetList(t => true);
+            listaProductos = productosBLL.GetList(t => true);
         }
     }
 }
