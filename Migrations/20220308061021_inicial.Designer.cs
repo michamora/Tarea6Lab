@@ -11,7 +11,7 @@ using Tarea6Lab.DAL;
 namespace Tarea6Lab.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220308050541_inicial")]
+    [Migration("20220308061021_inicial")]
     partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
