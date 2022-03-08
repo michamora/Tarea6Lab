@@ -12,6 +12,39 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
+        "HashCode": -1525915541,
+        "Kind": "Components.Component",
+        "Name": "Tarea6Lab.Pages.Index",
+        "AssemblyName": "Tarea6Lab",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Index"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea6Lab.Pages.Index"
+        }
+      },
+      {
+        "HashCode": -1704787886,
+        "Kind": "Components.Component",
+        "Name": "Tarea6Lab.Pages.Index",
+        "AssemblyName": "Tarea6Lab",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea6Lab.Pages.Index"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea6Lab.Pages.Index",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": -1307881971,
         "Kind": "Components.Component",
         "Name": "Tarea6Lab.Pages.C_Productos",
@@ -45,35 +78,35 @@
         }
       },
       {
-        "HashCode": -1525915541,
+        "HashCode": 1533794678,
         "Kind": "Components.Component",
-        "Name": "Tarea6Lab.Pages.Index",
+        "Name": "Tarea6Lab.Pages.C_Detalles",
         "AssemblyName": "Tarea6Lab",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Index"
+            "TagName": "C_Detalles"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea6Lab.Pages.Index"
+          "Common.TypeName": "Tarea6Lab.Pages.C_Detalles"
         }
       },
       {
-        "HashCode": -1704787886,
+        "HashCode": -1323617398,
         "Kind": "Components.Component",
-        "Name": "Tarea6Lab.Pages.Index",
+        "Name": "Tarea6Lab.Pages.C_Detalles",
         "AssemblyName": "Tarea6Lab",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Tarea6Lab.Pages.Index"
+            "TagName": "Tarea6Lab.Pages.C_Detalles"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea6Lab.Pages.Index",
+          "Common.TypeName": "Tarea6Lab.Pages.C_Detalles",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -131,39 +164,6 @@
         }
       },
       {
-        "HashCode": 1533794678,
-        "Kind": "Components.Component",
-        "Name": "Tarea6Lab.Pages.C_Detalles",
-        "AssemblyName": "Tarea6Lab",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "C_Detalles"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea6Lab.Pages.C_Detalles"
-        }
-      },
-      {
-        "HashCode": -1323617398,
-        "Kind": "Components.Component",
-        "Name": "Tarea6Lab.Pages.C_Detalles",
-        "AssemblyName": "Tarea6Lab",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea6Lab.Pages.C_Detalles"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea6Lab.Pages.C_Detalles",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 86850417,
         "Kind": "Components.Component",
         "Name": "Tarea6Lab.Shared.SurveyPrompt",
@@ -213,6 +213,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea6Lab.Shared.SurveyPrompt",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1722607434,
+        "Kind": "Components.Component",
+        "Name": "Tarea6Lab.Shared.NavMenu",
+        "AssemblyName": "Tarea6Lab",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea6Lab.Shared.NavMenu"
+        }
+      },
+      {
+        "HashCode": 1278562313,
+        "Kind": "Components.Component",
+        "Name": "Tarea6Lab.Shared.NavMenu",
+        "AssemblyName": "Tarea6Lab",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea6Lab.Shared.NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea6Lab.Shared.NavMenu",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -309,39 +342,6 @@
           "Runtime.Name": "Components.None",
           "Common.TypeName": "Tarea6Lab.Shared.MainLayout.Body",
           "Components.IsSpecialKind": "Components.ChildContent",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1722607434,
-        "Kind": "Components.Component",
-        "Name": "Tarea6Lab.Shared.NavMenu",
-        "AssemblyName": "Tarea6Lab",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "NavMenu"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea6Lab.Shared.NavMenu"
-        }
-      },
-      {
-        "HashCode": 1278562313,
-        "Kind": "Components.Component",
-        "Name": "Tarea6Lab.Shared.NavMenu",
-        "AssemblyName": "Tarea6Lab",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea6Lab.Shared.NavMenu"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea6Lab.Shared.NavMenu",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

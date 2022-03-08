@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@using Blazored.Toast.Configuration
 
 <PageTitle>Tarea6Lab</PageTitle>
 
@@ -17,3 +18,9 @@
         </article>
     </main>
 </div>
+<BlazoredToasts
+                Timeout="2"
+                IconType="IconType.FontAwesome"
+                SuccessClass="success-toast-override"
+                SuccessIcon="fa fa-thumbs-up"
+                ErrorIcon="fa fa-bug" />

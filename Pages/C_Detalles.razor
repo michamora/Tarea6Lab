@@ -3,90 +3,157 @@
 @using Tarea6Lab.Models
 @using Tarea6Lab.BLL 
 
-<EditForm Model="listaProductos">
-    <DataAnnotationsValidator />
-    
+
+<EditForm Model="lista">
     <div class="card">
     
         <div class="card-header">
-            <h3>Consulta de Detalles</h3>
+            <h4>Consulta Detalles </h4>
         </div>
-    
+
         <div class="card-body">
-    
             <form>
-    
                 <div class="input-group d-flex align-items-end">
-                    <select class="form-control col-2" @bind="Filtro">
+                    <InputSelect class="form-control col-2" @bind-Value="Filtro" placeholder="Elegir filtro de busqueda">
                         <option value="0"></option>
-                        <option value="1">Id</option>
-                        <option value="2">Presentación</option>
-                    </select>
+                        <option value="1">ID</option>
+                        <option value="2">Descripcion</option>
+                    </InputSelect>
 
                     <div class="flex-fill mx-2">
                         <label>Criterio</label>
-                        <input type="text" class="form-control" @bind="Criterio" placeholder="Ingrese el criterio"/>
+                        <InputText class="form-control" @bind-Value="Criterio" />
                     </div>
 
-                    <button type="button" class="btn btn-primary" @onclick="Buscar">
-                        <i class="oi oi-magnifying-glass mr-2"/> Buscar
-                    </button>
-                </div>             
-            </form>  
+                    <button type="button" class="btn btn-lg btn-secondary" @onclick="MostrarFecha"><span
+                            class="oi oi-calendar mx-2"></span>Fecha </button>
+                    <button type="button" class="btn btn-lg btn-primary" @onclick="Buscar"><span
+                            class="oi oi-magnifying-glass"></span>Buscar</button>
+
+                </div>
+    
+          @if (@listado)
+                {
+                    <div class="input-group d-flex align-items-end">
+
+                        <div class="flex-fill mx-2">
+                            <label>Desde</label>
+                            <InputDate class="form-control" @bind-Value="Desde" />
+                        </div>
+
+                        <div class="flex-fill mx-2">
+                            <label>Hasta</label>
+                            <InputDate class="form-control" @bind-Value="Hasta" />
+                        </div>
+
+                    </div>
+                }
+                
+            </form>
+    
         </div>
     
-        <table class="table table-secondary">
-    
-            <thead class="thead-dark">
-                <tr class="table-info">
-                    <th>Id</th>
+         <table class="table table-light">
+            <thead class="thead">
+                <tr class="table">
 
-                    <th>Producto Id</th>
+                    <th>ProductoId</th>
 
-                    <th>Presentación</th>
+                    <th>Descripción</th>
+
+                    <th>Existencia</th>    
+
+                    <th>Costo</th>          
+
+                    <th>ValorInventario</th>    
+
+                    <th>Ganancia</th>   
+
+                    <th>Fecha de vencimiento</th>
                     
-                    <th>Cantidad</th>
-
-                    <th>Precio</th>
                 </tr>
-            </thead>  
+            </thead>
+    
             <tbody>
-                @*  *@
-            </tbody>   
-        </table>    
-    </div>
+                @foreach (var item in lista)
+                {
+                    <tr>
+                        <td>@item.ProductoId</td>
+                        
+                        <td>@item.Descripcion</td>
+                        
+                        <td>@item.Existencia</td>
 
+                        <td>@item.Costo</td>
+
+                        <td>@item.ValorInventario</td>
+
+                        <td>@item.Ganancia</td>
+
+                        <td>@item.FechaVencimiento</td>
+                       
+                        
+                         <td><a class="btn btn-sm btn-outline-primary oi oi-eye" href="R_Productos/@item.ProductoId"></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            
+    
+        </table>
+    
+    </div>
 </EditForm>
 
+
+
 @code{
+    
+    
     public string Filtro { get; set; }
     public string Criterio { get; set; }
-    public List<Productos> listaProductos { get; set; } = new List<Productos>(); 
+    public DateTime Desde { get; set; }
+    public DateTime Hasta { get; set; }
+    public List<Productos> lista { get; set; } = new List<Productos>();
     
 
     [Inject]
     public ProductoBLL productosBLL { get; set; }
+     bool listado = false;
 
     private void Buscar()
     {
+
+       
         if (Criterio != null)
         {
-            switch(Filtro)
+            switch (Filtro)
             {
                 case "1":
-                    listaProductos = productosBLL.GetList(t => 
-                    t.ProductoId == int.Parse(Criterio));
-                break;
-
+                    lista = productosBLL.GetLista(p => p.ProductoId == int.Parse(Criterio));
+                    break;
                 case "2":
-                    listaProductos = productosBLL.GetList(t => 
-                    t.Descripcion.ToLower().Contains(Criterio.ToLower())); 
-                break;
+                    lista = productosBLL.GetLista(p => p.Descripcion.ToLower().Contains(Criterio.ToLower()));
+                    break;
             }
+
         }
         else
         {
-            listaProductos = productosBLL.GetList(t => true);
+            lista = productosBLL.GetLista(p => true);
+        }
+        
+        if (listado == true)
+        {
+            lista = productosBLL.GetLista(f => f.FechaVencimiento.Date >= Desde && f.FechaVencimiento.Date <= Hasta);
         }
     }
+    private void MostrarFecha()
+    {
+        if (listado == false)
+            listado = true;
+        else
+            listado = false;
+    }
+}
 }

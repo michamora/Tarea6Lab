@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Tarea6Lab.DAL;
 using Tarea6Lab.Models;
 
+
 namespace Tarea6Lab.BLL // BLL
 {
     public class ProductoBLL
@@ -25,19 +26,15 @@ namespace Tarea6Lab.BLL // BLL
 
         private bool Insertar(Productos producto)
         {
-            bool paso = false;
+           bool paso = false;
 
-            try
-            {
-                
-                if (_contexto.Productos.Add(producto) != null)
-                    paso = _contexto.SaveChanges() > 0;
-            }
-            catch (Exception)
-            {
+            try{
+                producto.ValorInventario = producto.Costo * producto.Existencia;
+                _contexto.Productos.Add(producto);
+                paso = _contexto.SaveChanges() > 0;
+            } catch(Exception){
                 throw;
             }
-
             return paso;
         }
 
@@ -87,23 +84,40 @@ namespace Tarea6Lab.BLL // BLL
             return paso;
         }
 
-        public Productos Buscar(int Id)
+         public Productos Buscar(int id)
         {
             Productos producto;
 
             try
             {
-                producto = _contexto.Productos
-                .Include(x => x.Detalle)
-                .Where(p => p.ProductoId == Id)
-                .SingleOrDefault();
+                
+               producto = _contexto.Productos.Include(x => 
+               x.Detalle).Where(p => p.ProductoId == id).SingleOrDefault();
+
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            return producto;
+        }
+
+        public Productos Buscar(string descripcion)
+        {
+            Productos productos;
+
+            try
+            {
+                 productos = _contexto.Productos.
+                Include(x => x.Detalle).Where(p => p
+                .Descripcion == descripcion).SingleOrDefault();
             }
             catch (Exception)
             {
                 throw;
             }
 
-            return producto;
+            return productos;
         }
 
         public bool Existe(string descripcion)
@@ -139,7 +153,7 @@ namespace Tarea6Lab.BLL // BLL
             return paso;
         }  
         
-        public List<Productos> GetList(Expression<Func<Productos, bool>> critero)
+        public List<Productos> GetLista(Expression<Func<Productos, bool>> critero)
         {
             List<Productos> listaProductos = new List<Productos>();
 
@@ -155,5 +169,24 @@ namespace Tarea6Lab.BLL // BLL
             return listaProductos;
         }
 
+    
+
+    public List<ProductosDetalle> GetDetalles(Expression<Func<ProductosDetalle, bool>> criterio)
+        {
+            List<ProductosDetalle>? listaDetalles = new List<ProductosDetalle>();
+
+            try
+            {
+                listaDetalles = _contexto.ProductosDetalles?.Where(criterio).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return listaDetalles!;
+        }
     }
+
+    
 }

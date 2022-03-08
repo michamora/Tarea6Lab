@@ -3,6 +3,7 @@
 @page "/R_Productos/{ProductoId:int}"
 
 @inject IToastService toastService
+@inject IToastService toast
 
 <EditForm Model="producto" OnValidSubmit="Guardar">
     <DataAnnotationsValidator />
@@ -39,12 +40,20 @@
                 <hr>
 
                 <div class="row">
+ 
 
                     @* Descripcion *@
                     <div class="form-group mt-3">
                         <label>Descripci&oacute;n</label>
                         <InputText class="form-control" @bind-Value="producto.Descripcion" placeholder="Descripción Producto"/>
                         <ValidationMessage For="@(() => producto.Descripcion)" />
+                    </div>
+
+                     @* Costo *@
+                    <div class="form-group mt-3 ">
+                        <label>Costo</label>
+                        <InputNumber class="form-control" @bind-Value="producto.Costo" @onchange="CalculoValorInventario"/>
+                        <ValidationMessage For="@(() => producto.Costo)" />
                     </div>
 
                     @* Existencia *@
@@ -54,12 +63,21 @@
                         <ValidationMessage For="@(() => producto.Existencia)" />
                     </div>
 
-                    @* Costo *@
-                    <div class="form-group mt-3 ">
-                        <label>Costo</label>
-                        <InputNumber class="form-control" @bind-Value="producto.Costo" @onchange="CalculoValorInventario"/>
-                        <ValidationMessage For="@(() => producto.Costo)" />
+                       @* Precio *@
+                    <div class="form-group col">
+                        <label>Precio</label>
+                        <InputNumber class="form-control" @bind-Value="producto.Precio" />
+                        <ValidationMessage For="@(() => producto.Precio)" />
                     </div>
+
+                      @* Fecha *@
+                <div class="form-group">
+                    <label>Fecha</label>
+                    <InputDate @bind-Value="producto.FechaVencimiento" />
+                    <ValidationMessage For="@(() =>producto.FechaVencimiento)" />
+                </div>
+
+                   
 
                     @* Valor de Inventario *@
                     <div class="form-group mt-3 ">
@@ -68,21 +86,31 @@
                         <ValidationMessage For="@(() => producto.ValorInventario)" />
                     </div>
 
+                     @* Ganancia *@
+                    <div class="form-group col">
+                        <label>Ganancia</label>
+                        <InputNumber readonly class="form-control" @bind-Value="producto.Ganancia" />
+                        <ValidationMessage For="@(() => producto.Ganancia)" />
+                    </div>
+
                 </div>
 
                 <br>
 
                 <hr>
 
-                @* Producto Detalle *@
-                <div class="card">
+                @* Productos Detalle *@
+                <div class="card align-items-center">
 
-                    <div class="card-header">
+                    <div class="card-header align-items-center">
                         <h3>Detalle</h3>
                     </div>
 
                     <form>
                         <div class="input-group d-flex align-items-end">
+
+                        
+                            
 
                             @* Presentacion *@
                             <div class="form-group col">
@@ -118,7 +146,7 @@
                         <table class="table table-secondary">
                             <thead class="thead-dark">
                                 <tr class="table-info">
-                                    <th>Id</th>
+                                    
 
                                     <th>Presentación</th>
 
@@ -131,7 +159,7 @@
                                 @foreach (var item in producto.Detalle)
                                 {
                                     <tr>
-                                        <td>@item.ProductoId</td>
+                                       
                                         <td>@item.Presentacion</td>
                                         <td>@item.Cantidad</td>
                                         <td>RD$ @item.Precio</td>
@@ -168,12 +196,14 @@
 
 </EditForm>
 
-@inject IToastService toastService
+
 
 @code {
 
     public Productos producto { get; set; } = new Productos();
     public string Presentacion { get; set; }
+
+    
     public int Cantidad { get; set; }
     public double Precio { get; set; }
 
@@ -221,6 +251,7 @@
     public void Guardar()
     {
         CalculoValorInventario();
+        Ganancia();
 
         if (productosBLL.Guardar(producto))
         {
@@ -252,13 +283,25 @@
         this.producto.Detalle.Remove(item);
     }
 
+     public void CostoChanged()
+    {
+        Ganancia();
+        CalculoValorInventario();
+    }
+    public void GananciaChanged()
+    {
+        producto.Ganancia = Convert.ToInt32(((producto.Precio - producto.Costo) / producto.Costo) * 100);
+    }
+
+
     private void CalculoValorInventario()
     {
-        double costo = producto.Costo;
+                producto.ValorInventario = producto.Costo * producto.Existencia;
+    }
 
-           double existencia = producto.Existencia;
-
-                producto.ValorInventario = costo * existencia;
+ public void Ganancia()
+    {
+        producto.Ganancia = (int)((producto.Precio - producto.Costo) / producto.Costo) * 100;
     }
 
 }

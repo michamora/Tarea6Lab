@@ -16,8 +16,11 @@ namespace Tarea6Lab.Migrations
                     ProductoId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Descripcion = table.Column<string>(type: "TEXT", nullable: false),
+                    FechaVencimiento = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Existencia = table.Column<int>(type: "INTEGER", nullable: false),
                     Costo = table.Column<double>(type: "REAL", nullable: false),
+                    Precio = table.Column<double>(type: "REAL", nullable: false),
+                    Ganancia = table.Column<int>(type: "INTEGER", nullable: false),
                     ValorInventario = table.Column<double>(type: "REAL", nullable: false),
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -27,7 +30,7 @@ namespace Tarea6Lab.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductosDetalle",
+                name: "ProductosDetalles",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -39,9 +42,9 @@ namespace Tarea6Lab.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductosDetalle", x => x.Id);
+                    table.PrimaryKey("PK_ProductosDetalles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductosDetalle_Productos_ProductoId",
+                        name: "FK_ProductosDetalles_Productos_ProductoId",
                         column: x => x.ProductoId,
                         principalTable: "Productos",
                         principalColumn: "ProductoId",
@@ -49,15 +52,15 @@ namespace Tarea6Lab.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductosDetalle_ProductoId",
-                table: "ProductosDetalle",
+                name: "IX_ProductosDetalles_ProductoId",
+                table: "ProductosDetalles",
                 column: "ProductoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ProductosDetalle");
+                name: "ProductosDetalles");
 
             migrationBuilder.DropTable(
                 name: "Productos");

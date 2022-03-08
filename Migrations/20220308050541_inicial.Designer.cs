@@ -11,7 +11,7 @@ using Tarea6Lab.DAL;
 namespace Tarea6Lab.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220305201447_inicial")]
+    [Migration("20220308050541_inicial")]
     partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,15 @@ namespace Tarea6Lab.Migrations
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("FechaVencimiento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Ganancia")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("Precio")
+                        .HasColumnType("REAL");
 
                     b.Property<double>("ValorInventario")
                         .HasColumnType("REAL");
@@ -69,7 +78,7 @@ namespace Tarea6Lab.Migrations
 
                     b.HasIndex("ProductoId");
 
-                    b.ToTable("ProductosDetalle");
+                    b.ToTable("ProductosDetalles");
                 });
 
             modelBuilder.Entity("Tarea6Lab.Models.ProductosDetalle", b =>
