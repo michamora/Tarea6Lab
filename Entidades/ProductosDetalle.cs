@@ -39,8 +39,6 @@ namespace Tarea6Lab.Models
             this.Cantidad = cantidad;
             
             this.Precio = precio;
-
-            
         }
 
     }
