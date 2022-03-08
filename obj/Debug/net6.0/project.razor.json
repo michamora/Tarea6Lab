@@ -164,6 +164,39 @@
         }
       },
       {
+        "HashCode": -1636718230,
+        "Kind": "Components.Component",
+        "Name": "Tarea6Lab.App",
+        "AssemblyName": "Tarea6Lab",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea6Lab.App"
+        }
+      },
+      {
+        "HashCode": 1409386389,
+        "Kind": "Components.Component",
+        "Name": "Tarea6Lab.App",
+        "AssemblyName": "Tarea6Lab",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea6Lab.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea6Lab.App",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 86850417,
         "Kind": "Components.Component",
         "Name": "Tarea6Lab.Shared.SurveyPrompt",
@@ -342,39 +375,6 @@
           "Runtime.Name": "Components.None",
           "Common.TypeName": "Tarea6Lab.Shared.MainLayout.Body",
           "Components.IsSpecialKind": "Components.ChildContent",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1636718230,
-        "Kind": "Components.Component",
-        "Name": "Tarea6Lab.App",
-        "AssemblyName": "Tarea6Lab",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea6Lab.App"
-        }
-      },
-      {
-        "HashCode": 1409386389,
-        "Kind": "Components.Component",
-        "Name": "Tarea6Lab.App",
-        "AssemblyName": "Tarea6Lab",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea6Lab.App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea6Lab.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
