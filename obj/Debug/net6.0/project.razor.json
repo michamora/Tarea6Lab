@@ -45,39 +45,6 @@
         }
       },
       {
-        "HashCode": -1307881971,
-        "Kind": "Components.Component",
-        "Name": "Tarea6Lab.Pages.C_Productos",
-        "AssemblyName": "Tarea6Lab",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "C_Productos"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea6Lab.Pages.C_Productos"
-        }
-      },
-      {
-        "HashCode": 352614595,
-        "Kind": "Components.Component",
-        "Name": "Tarea6Lab.Pages.C_Productos",
-        "AssemblyName": "Tarea6Lab",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea6Lab.Pages.C_Productos"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea6Lab.Pages.C_Productos",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 1533794678,
         "Kind": "Components.Component",
         "Name": "Tarea6Lab.Pages.C_Detalles",
@@ -160,6 +127,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea6Lab.Pages.R_Productos",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1307881971,
+        "Kind": "Components.Component",
+        "Name": "Tarea6Lab.Pages.C_Productos",
+        "AssemblyName": "Tarea6Lab",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "C_Productos"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea6Lab.Pages.C_Productos"
+        }
+      },
+      {
+        "HashCode": 352614595,
+        "Kind": "Components.Component",
+        "Name": "Tarea6Lab.Pages.C_Productos",
+        "AssemblyName": "Tarea6Lab",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea6Lab.Pages.C_Productos"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea6Lab.Pages.C_Productos",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
