@@ -22,13 +22,14 @@ namespace Tarea6Lab.Models
         
         [Required(ErrorMessage = "El Costo no puede estar vacio...")]
         [Range(1, double.MaxValue, ErrorMessage = "El Costo debe estar en un rango de {1} y {2}.")]
+
         public double Costo { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio. Se debe indicar el precio.")]
         [Range(1, double.MaxValue, ErrorMessage = "Se debe indicar el precio del producto dentro de los rangos {1}/{2}.")]
         public double Precio { get; set; }
 
-        public int Ganancia { get; set; }
+        public double Ganancia { get; set; }
         public double ValorInventario { get; set; }
         public DateTime Fecha { get; set; }
 
