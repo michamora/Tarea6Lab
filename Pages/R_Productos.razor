@@ -248,6 +248,22 @@
 
         Precio = 0;
     }
+
+     public void CostoChanged()
+    {
+        Ganancia();
+        CalculoValorInventario();
+    }
+
+    private void CalculoValorInventario()
+    {
+                producto.ValorInventario = producto.Costo * producto.Existencia;
+    }
+
+ public void Ganancia()
+    {
+        producto.Ganancia = producto.Precio - producto.Costo * 100 / producto.Costo;
+    }
     public void Guardar()
     {
         CalculoValorInventario();
@@ -283,25 +299,6 @@
         this.producto.Detalle.Remove(item);
     }
 
-     public void CostoChanged()
-    {
-        Ganancia();
-        CalculoValorInventario();
-    }
-    public void GananciaChanged()
-    {
-        producto.Ganancia = Convert.ToInt32(((producto.Precio - producto.Costo) / producto.Costo) * 100);
-    }
-
-
-    private void CalculoValorInventario()
-    {
-                producto.ValorInventario = producto.Costo * producto.Existencia;
-    }
-
- public void Ganancia()
-    {
-        producto.Ganancia = (int)((producto.Precio - producto.Costo) / producto.Costo) * 100;
-    }
+    
 
 }
