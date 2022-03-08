@@ -37,7 +37,7 @@ namespace Tarea6Lab.BLL // BLL
             }
             return paso;
         }
-
+  
         private bool Modificar(Productos producto)
         {
             bool paso = false;
